@@ -1,0 +1,20 @@
+s=input()
+n=int(input())
+def decrypt_string(s, n):
+    i = 0
+    result = ""
+    
+    while i < len(s):
+        char = s[i]
+        i += 1
+        frequency = 0
+        while i < len(s) and s[i].isdigit():
+            frequency = frequency * 10 + int(s[i])
+            i += 1
+        result += char * frequency
+    if n <= len(result):
+        return result[n - 1]
+    else:
+        return "-1"
+print(decrypt_string(s,n))
+    
